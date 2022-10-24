@@ -8,11 +8,11 @@ public class PlayerHealthPickup : MonoBehaviour
     //public delegate void PlayerHealthIncreaseAction();
     //public static event PlayerHealthIncreaseAction PlayerHealthIncrease;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().playerHealth += healthIncrease;
+            other.gameObject.GetComponent<PlayerHealth>().playerHealth += healthIncrease;
             Destroy(gameObject);
         }
     }
